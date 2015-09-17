@@ -1,0 +1,6 @@
+[plugin]
+name = "dokku-slack"
+description = "A plugin for Dokku that notifies Slack of deployments"
+version = "0.1.0"
+website_url = "https://github.com/expa/dokku-slack"
+[plugin.config]
