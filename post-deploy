@@ -18,6 +18,9 @@ if [ "$SLACK_NOTIFY" == 1 ]; then
 
   [[ -n "$SLACK_MESSAGE" ]] && MESSAGE=`echo $SLACK_MESSAGE| envsubst`
 
+  PLUGIN_BASE_PATH="$PLUGIN_PATH"
+  [[ -n $DOKKU_API_VERSION ]] && PLUGIN_BASE_PATH="$PLUGIN_ENABLED_PATH"
+
   echo "-----> Notifying Slack ..."
-  echo $MESSAGE | $PLUGIN_PATH/dokku-slack/slack-notify > /dev/null
+  echo $MESSAGE | $PLUGIN_BASE_PATH/dokku-slack/slack-notify > /dev/null
 fi
