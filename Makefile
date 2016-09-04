@@ -22,7 +22,7 @@ ci-dependencies: shellcheck bats
 
 lint:
 	@echo linting...
-	@$(QUIET) find . -not -path '*/\.*' -type f | xargs file | grep text | awk -F ':' '{ print $$1 }' | xargs head -n1 | egrep -B1 "bash" | grep "==>" | awk '{ print $$2 }' | xargs shellcheck -e SC2034
+	@$(QUIET) find . -not -path '*/\.*' -type f | xargs file | grep text | awk -F ':' '{ print $$1 }' | xargs head -n1 | egrep -B1 "bash" | grep "==>" | awk '{ print $$2 }' | xargs shellcheck -e SC2034 -e SC1090
 
 setup:
 	$(MAKE) ci-dependencies
